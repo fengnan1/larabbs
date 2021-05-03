@@ -23,11 +23,10 @@ class UsersController extends Controller
 
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
-        // dd($request->all());
-        // dd($request->avatar);
+       $data=$request->all();
         //开启
         // DB::enableQueryLog();
-        $user->update($request->all());
+
         //打印
         // dd(DB::getQueryLog());
         if ($request->avatar) {
@@ -36,6 +35,8 @@ class UsersController extends Controller
                 $data['avatar'] = $result['path'];
             }
         }
+        // dd($data);
+        $user->update($data);
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
     }
 }
