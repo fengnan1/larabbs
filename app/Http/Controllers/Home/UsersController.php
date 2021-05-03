@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 
+use DB;
 class UsersController extends Controller
 {
     public function show(User $user)
@@ -21,7 +22,12 @@ class UsersController extends Controller
 
     public function update(UserRequest $request, User $user)
     {
-        $user->update($request->all());
+        // dd($request->all());
+        //开启
+        // DB::enableQueryLog();
+        $result=$user->update($request->all());
+        //打印
+        // dd(DB::getQueryLog());
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
     }
 }
