@@ -40,4 +40,10 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 
 //用户相关
 Route::resource('users', 'Home\UsersController', ['only' => ['show', 'update', 'edit']]);
+
+//话题相关
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+//分类
+Route::resource('categories', 'Home\CategoriesController', ['only' => ['show']]);
+
