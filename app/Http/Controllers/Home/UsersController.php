@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
+use App\Handlers\ImageUploadHandler;
 
 use DB;
 class UsersController extends Controller
@@ -20,14 +21,21 @@ class UsersController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
         // dd($request->all());
+        // dd($request->avatar);
         //开启
         // DB::enableQueryLog();
-        $result=$user->update($request->all());
+        $user->update($request->all());
         //打印
         // dd(DB::getQueryLog());
+        if ($request->avatar) {
+            $result = $uploader->save($request->avatar, 'avatars', $user->id);
+            if ($result) {
+                $data['avatar'] = $result['path'];
+            }
+        }
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
     }
 }
