@@ -44,6 +44,9 @@ Route::resource('users', 'Home\UsersController', ['only' => ['show', 'update', '
 //话题相关
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
+//上传图片
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
+
 //分类
 Route::resource('categories', 'Home\CategoriesController', ['only' => ['show']]);
 
