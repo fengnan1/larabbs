@@ -2,6 +2,7 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/topics.css') }}">
 @stop
 
 @section('content')
