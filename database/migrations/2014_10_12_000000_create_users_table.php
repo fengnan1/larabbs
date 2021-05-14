@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar')->nullable()->comment('头像');
             $table->string('introduction')->nullable()->comment('个人简介');
+            $table->integer('notification_count')->unsigned()->default(0)->comment('未读消息');
             $table->rememberToken();
             $table->timestamps();
         });
