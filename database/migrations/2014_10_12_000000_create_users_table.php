@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable()->comment('头像');
             $table->string('introduction')->nullable()->comment('个人简介');
             $table->integer('notification_count')->unsigned()->default(0)->comment('未读消息');
+            $table->timestamp('last_actived_at')->nullable()->comment('最后登录时间');
             $table->rememberToken();
             $table->timestamps();
         });
