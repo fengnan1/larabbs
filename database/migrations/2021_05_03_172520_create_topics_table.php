@@ -12,6 +12,7 @@ class CreateTopicsTable extends Migration
             $table->string('title')->index();
             $table->text('body');
             $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('category_id')->unsigned()->index();
             $table->integer('reply_count')->unsigned()->default(0);
             $table->integer('view_count')->unsigned()->default(0);
