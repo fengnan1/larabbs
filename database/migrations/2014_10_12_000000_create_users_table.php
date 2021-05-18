@@ -19,7 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable()->unique()->comment('电话');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->default('');
+            $table->string('weixin_openid')->unique()->nullable()->comment('微信openid');
+            $table->string('weixin_unionid')->unique()->nullable()->comment('微信unionid');
             $table->string('avatar')->nullable()->comment('头像');
             $table->string('introduction')->nullable()->comment('个人简介');
             $table->integer('notification_count')->unsigned()->default(0)->comment('未读消息');
