@@ -125,6 +125,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/overtrue/easy-sms" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/gregwar/captcha" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/socialiteproviders/manager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/socialiteproviders/weixin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/socialite" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth1-client" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
