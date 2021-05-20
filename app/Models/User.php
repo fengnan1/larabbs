@@ -8,8 +8,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements  MustVerifyEmailContract
+class User extends Authenticatable implements  MustVerifyEmailContract,JWTSubject
 {
     use MustVerifyEmailTrait,HasRoles,Traits\ActiveUserHelper,Traits\LastActivedAtHelper;
 
@@ -92,5 +93,15 @@ class User extends Authenticatable implements  MustVerifyEmailContract
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }
