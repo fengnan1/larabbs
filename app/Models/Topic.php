@@ -2,11 +2,22 @@
 
 namespace App\Models;
 
+// use Spatie\QueryBuilder\QueryBuilder;
+
 class Topic extends Model
 {
     protected $fillable = [
         'title', 'body', 'category_id', 'excerpt', 'slug'
     ];
+
+    // // 重写路由模型绑定
+    // public function resolveRouteBinding($value)
+    // {
+    //     return QueryBuilder::for(self::class)
+    //         ->allowedIncludes('user', 'category')
+    //         ->where($this->getRouteKeyName(), $value)
+    //         ->first();
+    // }
 
     public function link($params = [])
     {
