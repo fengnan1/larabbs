@@ -11,7 +11,7 @@ use App\Http\Requests\Api\AuthorizationRequest;
 
 class AuthorizationsController extends Controller
 {
-
+    //
     protected function respondWithToken($token)
     {
         return response()->json([
