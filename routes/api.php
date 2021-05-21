@@ -44,6 +44,9 @@ Route::prefix('v1')->namespace('Api')->name('api.v1.')->group(function () {
             Route::resource('topics', 'TopicsController')->only([
                 'index', 'show'
             ]);
+            // 话题回复列表
+            Route::get('topics/{topic}/replies', 'RepliesController@index')
+                ->name('topics.replies.index');
             // 某个用户发布的话题
             Route::get('users/{user}/topics', 'TopicsController@userIndex')
                 ->name('users.topics.index');
