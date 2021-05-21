@@ -7,6 +7,7 @@ use App\Http\Resources\NotificationResource;
 
 class NotificationsController extends Controller
 {
+    // 查看未读消息
     public function index(Request $request)
     {
         $notifications = $request->user()->notifications()->paginate();
@@ -20,5 +21,12 @@ class NotificationsController extends Controller
         return response()->json([
             'unread_count' => $request->user()->notification_count,
         ]);
+    }
+    // 标记通知消息为已读
+    public function read(Request $request)
+    {
+        $request->user()->markAsRead();
+
+        return response(null, 204);
     }
 }
